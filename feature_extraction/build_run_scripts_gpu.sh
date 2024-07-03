@@ -52,7 +52,7 @@ while IFS= read -r cancer; do
         echo '#SBATCH --constraint=gpu_doublep' >> "$script_file"
         echo 'module load gcc/6.2.0 openslide/3.4.1 cuda/11.2 miniconda/23.1.0' >> "$script_file"
         echo 'source activate gigapath' >> "$script_file"
-        echo 'export HF_TOKEN=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' >> "$script_file"
+        echo 'export HF_TOKEN=<YOUR HUGGINGFACE TOKEN>' >> "$script_file"
 
         echo "python3 feature_extraction_GigaPath.py \\
             --cancer ${cancer} \\
