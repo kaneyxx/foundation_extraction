@@ -235,12 +235,6 @@ def multi_thread_process(wsi_path, patch_coord_dir, visual_mask_dir, visual_stit
         # logger.info(f"{slide_id} exist.")
         pbar.update(1)
         return
-    elif slide_id in ["TCGA-UZ-A9PQ-01Z-00-DX1.C2CB0E94-2548-4399-BCAB-E4D556D533EF",
-                      "TCGA-5P-A9KA-01Z-00-DX1.6F4914E0-AB5D-4D5F-8BF6-FB862AA63A87",
-                      "TCGA-5P-A9KC-01Z-00-DX1.F3D67C35-111C-4EE6-A5F7-05CF8D01E783"]:
-        logger.info(f"Skipped WSI: {slide_id}")
-        pbar.update(1)
-        return
     else:
         try:
             logger.info(f"Processing: {slide_id}")

@@ -66,7 +66,10 @@ if __name__ == '__main__':
     cancer_type = args.cancer # e.g., '04_LUAD'
     logging.info(f"Processing cancer type: {cancer_type}")
     logging.info(f"Saving output to: {args.save_root}")
-
+    
+    ### -------------------------------------------------------###
+    # Modify this part to your model and transformation function #
+    ### -------------------------------------------------------###
     model = timm.create_model("hf_hub:prov-gigapath/prov-gigapath", pretrained=True)
     model = model.eval().to(device)
     transform = img_transform(args.patch_size)
@@ -105,7 +108,7 @@ if __name__ == '__main__':
                     image = wsi.read_region(data[idx], 0, (patch_size, patch_size)).convert('RGB')
                     image = transform(image).unsqueeze(dim=0).to(device)
                     with torch.no_grad():
-                        patch_feature_emb = model(image) # Extracted features (torch.Tensor) with shape [1,1024]
+                        patch_feature_emb = model(image) # Extracted features (torch.Tensor) with shape [1, dim]
                     if idx == 0:
                         output_tensor = patch_feature_emb
                     else:
