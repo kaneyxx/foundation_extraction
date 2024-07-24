@@ -1,5 +1,9 @@
 # Pipeline for Extracting Features from Foundation Models
 
+## Environment Building
+`conda env create -f environment.yml`
+
+
 ### Step 1: Create a CSV file containing the paths of whole slide images (WSIs).
 Run `wsi_sheet/wsi_sheet.sh` and modify the code if needed.
 
